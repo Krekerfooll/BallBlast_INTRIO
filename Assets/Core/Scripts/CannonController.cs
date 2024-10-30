@@ -27,10 +27,10 @@ namespace BallBlust.Core
         private void Awake()
         {
             var camera = Camera.main;
-            var leftBound = camera.ViewportToWorldPoint(new Vector3(_targetBounds.x, 0f, -camera.transform.position.z)).x;
-            var rightBound = camera.ViewportToWorldPoint(new Vector3(_targetBounds.y, 0f, -camera.transform.position.z)).x;
-            var topBound = camera.ViewportToWorldPoint(new Vector3(0f, 1f, -camera.transform.position.z)).y;
-            var bottomBound = camera.ViewportToWorldPoint(new Vector3(0f, 0f, -camera.transform.position.z)).y;
+            var leftBound = camera.ViewportToWorldPoint(new Vector3(_targetBounds.x, 0f)).x;
+            var rightBound = camera.ViewportToWorldPoint(new Vector3(_targetBounds.y, 0f)).x;
+            var topBound = camera.ViewportToWorldPoint(new Vector3(0f, 1f)).y;
+            var bottomBound = camera.ViewportToWorldPoint(new Vector3(0f, 0f)).y;
 
             _worldBounds = new Vector2(leftBound, rightBound);
             _worldProjectileDistance = topBound - bottomBound;
@@ -82,7 +82,7 @@ namespace BallBlust.Core
                 if (_inputSlider.IsPressed)
                 {
                     var projectile = Instantiate(_projectilePrefab, _projectileSpawnPoint.position, Quaternion.identity);
-                    projectile.Lounch(_projectileSpeed, _worldProjectileDistance);
+                    projectile.Lounch(1, _projectileSpeed, _worldProjectileDistance);
                 }
 
                 yield return new WaitForSeconds(1f / _shootingRate);

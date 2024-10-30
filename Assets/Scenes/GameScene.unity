@@ -1063,6 +1063,62 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1700671349
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1700671351}
+  - component: {fileID: 1700671350}
+  m_Layer: 0
+  m_Name: Board
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1700671350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700671349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abcfd000b2e32a94db830cc267ff2853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cellPrefab: {fileID: 4122960988082569746, guid: 281bc9e497ee75b43993b08207f9255d, type: 3}
+  _keepRows: 12
+  _boardSize: {x: 5, y: 8}
+  _padding:
+    Left: 0.5
+    Right: 0.5
+    Top: 0
+    Bottom: 7
+  _spacing: {x: 0.1, y: 0.1}
+  _boardSpeed: -0.1
+  _startCellsHPRange: {x: 5, y: 15}
+  _cellsHPStep: 5
+--- !u!4 &1700671351
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700671349}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1811080716
 GameObject:
   m_ObjectHideFlags: 0
@@ -1429,3 +1485,4 @@ SceneRoots:
   - {fileID: 2670267109345194129}
   - {fileID: 1169189650}
   - {fileID: 1438297836}
+  - {fileID: 1700671351}

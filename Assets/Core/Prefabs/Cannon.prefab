@@ -336,7 +336,7 @@ MonoBehaviour:
   _projectilePrefab: {fileID: 6293772029789709116, guid: df5c5198060250e47980995dcf168975, type: 3}
   _projectileSpawnPoint: {fileID: 959030832745476922}
   _projectileSpeed: 5
-  _shootingRate: 2
+  _shootingRate: 3
   _inputSlider: {fileID: 0}
   _target: {fileID: 8017057340485227309}
   _wheels:
