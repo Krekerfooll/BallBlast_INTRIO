@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3203953227403679410}
   - component: {fileID: 4122960988082569746}
   - component: {fileID: 4014237825328064526}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cell
-  m_TagString: Untagged
+  m_TagString: Cell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,10 +47,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _background: {fileID: 5660474589418656627}
-  _counter: {fileID: 762657117713118793}
   _collider: {fileID: 4014237825328064526}
-  _counterSizeMultiplier: {x: 0.7, y: 0.5}
   _colliderSizeMultiplier: {x: 0.95, y: 0.9}
+  _drop:
+  - Type: 10
+    Chance: 0.25
+  - Type: 10
+    Chance: 0.15
+  - Type: 11
+    Chance: 0.05
+  _counter: {fileID: 762657117713118793}
+  _counterSizeMultiplier: {x: 0.7, y: 0.5}
 --- !u!61 &4014237825328064526
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -107,7 +114,7 @@ GameObject:
   - component: {fileID: 7136609043280536580}
   - component: {fileID: 6606802395467780443}
   - component: {fileID: 762657117713118793}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -277,7 +284,7 @@ GameObject:
   m_Component:
   - component: {fileID: 65095204197432406}
   - component: {fileID: 5660474589418656627}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}

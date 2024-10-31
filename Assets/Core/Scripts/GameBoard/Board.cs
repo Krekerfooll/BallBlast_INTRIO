@@ -1,17 +1,20 @@
 using BallBlust.Utils;
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 
 namespace BallBlust.Core
 {
     public class Board : MonoBehaviour
     {
-        [SerializeField] private Cell _cellPrefab;
+        [SerializeField] private CellSpawnData[] _cellPrefabs;
         [SerializeField] private float _keepRows;
         [SerializeField] private Vector2Int _boardSize;
         [SerializeField] private Padding _padding;
         [SerializeField] private Vector2 _spacing;
         [Space]
+        [SerializeField] private BoxCollider2D _leftWall;
+        [SerializeField] private BoxCollider2D _rightWall;
         [SerializeField] private float _boardSpeed;
         [Space]
         [SerializeField] private Vector2Int _startCellsHPRange;
@@ -47,6 +50,11 @@ namespace BallBlust.Core
                 GenerateRow(_startPosition, _step, j);
             }
 
+            var leftWorldBound = Camera.main.ViewportToWorldPoint(Vector3.zero).x;
+            var rightWorldBound = Camera.main.ViewportToWorldPoint(Vector3.one).x;
+            _leftWall.offset = new Vector2(leftWorldBound - _leftWall.size.x * 0.5f, _leftWall.offset.y);
+            _rightWall.offset = new Vector2(rightWorldBound + _rightWall.size.x * 0.5f, _rightWall.offset.y);
+
             StartCoroutine(BoardRoutine());
         }
 
@@ -58,11 +66,13 @@ namespace BallBlust.Core
         {
             for (int i = 0; i < _boardSize.x; i++)
             {
+                var cellToSpawn = CellSpawnData.GetRandom(_cellPrefabs);
                 var cellPosition = new Vector3(startPositionX + stepX * i, height);
-                var instancee = Instantiate(_cellPrefab, cellPosition, Quaternion.identity, transform);
+                var instancee = Instantiate(cellToSpawn, cellPosition, Quaternion.identity, transform);
                 var currentHPModifier = _cellsHPStep * _spawnedRowsCount;
                 var hp = RandomUtils.RandomRange(_startCellsHPRange.x + currentHPModifier, _startCellsHPRange.y + currentHPModifier, 5);
-                instancee.Init(_cellSize, hp);
+                var isCloseToLeftBound = i <= _boardSize.x * 0.5f;
+                instancee.Init(_cellSize, hp, isCloseToLeftBound);
             }
 
             _spawnedRowsCount++;
@@ -102,6 +112,34 @@ namespace BallBlust.Core
 
             Gizmos.color = Color.black;
             Gizmos.DrawWireCube(center, size);
+        }
+
+
+        [System.Serializable]
+        public struct CellSpawnData
+        {
+            public BaseCell Cell;
+            public int Chance;
+
+            public static BaseCell GetRandom(CellSpawnData[] cells)
+            {
+                var chanceSum = cells.Sum(cell => cell.Chance);
+                var randomValue = Random.Range(0, chanceSum);
+                var currentChance = 0;
+
+                for (int i = 0; i < cells.Length; i++)
+                {
+                    var cell = cells[i];
+                    currentChance += cell.Chance;
+
+                    if (randomValue < currentChance)
+                    {
+                        return cell.Cell;
+                    }
+                }
+
+                return cells.Last().Cell;
+            }
         }
 
         [System.Serializable]

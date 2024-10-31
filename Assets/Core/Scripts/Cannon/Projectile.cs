@@ -1,32 +1,31 @@
 using DG.Tweening;
+using System;
 using UnityEngine;
 
 namespace BallBlust.Core
 {
     public class Projectile : MonoBehaviour
     {
-        private int _damage;
+        public Action<Projectile> OnProjectileDestroy;
 
-        public void Lounch(int damage, float projectileSpeed, float distance)
+        [SerializeField] private int _damage;
+
+        public void Lounch(float projectileSpeed, float distance)
         {
-            _damage = damage;
-
             var targetHeight = transform.position.y + distance;
             var duration = distance / projectileSpeed;
 
             transform.DOMoveY(targetHeight, duration)
-                     .OnComplete(() => Destroy(gameObject));
+                     .OnComplete(() => OnProjectileDestroy?.Invoke(this));
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.gameObject.TryGetComponent<Cell>(out var cell)) 
+            if (collision.gameObject.TryGetComponent<BaseCell>(out var cell)) 
             {
                 transform.DOKill();
-
                 cell.TakeDamage(_damage);
-
-                Destroy(gameObject);
+                OnProjectileDestroy?.Invoke(this);
             }
         }
     }

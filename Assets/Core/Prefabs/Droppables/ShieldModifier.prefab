@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &172138798707868434
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1723974725783907178, guid: 3fc0b954a56981448928bf1e48c61417, type: 3}
+      propertyPath: m_Name
+      value: ShieldModifier
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852877554234079938, guid: 3fc0b954a56981448928bf1e48c61417, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852877554234079938, guid: 3fc0b954a56981448928bf1e48c61417, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852877554234079938, guid: 3fc0b954a56981448928bf1e48c61417, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852877554234079938, guid: 3fc0b954a56981448928bf1e48c61417, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852877554234079938, guid: 3fc0b954a56981448928bf1e48c61417, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852877554234079938, guid: 3fc0b954a56981448928bf1e48c61417, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852877554234079938, guid: 3fc0b954a56981448928bf1e48c61417, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852877554234079938, guid: 3fc0b954a56981448928bf1e48c61417, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852877554234079938, guid: 3fc0b954a56981448928bf1e48c61417, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852877554234079938, guid: 3fc0b954a56981448928bf1e48c61417, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278709781513966656, guid: 3fc0b954a56981448928bf1e48c61417, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 23399bda79bea4d48be32ae4a310911d, type: 3}
+    - target: {fileID: 8887646637361363151, guid: 3fc0b954a56981448928bf1e48c61417, type: 3}
+      propertyPath: m_Color.b
+      value: 0.7411765
+      objectReference: {fileID: 0}
+    - target: {fileID: 8887646637361363151, guid: 3fc0b954a56981448928bf1e48c61417, type: 3}
+      propertyPath: m_Color.g
+      value: 0.3248971
+      objectReference: {fileID: 0}
+    - target: {fileID: 8887646637361363151, guid: 3fc0b954a56981448928bf1e48c61417, type: 3}
+      propertyPath: m_Color.r
+      value: 0.3019608
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3455187942433038983, guid: 3fc0b954a56981448928bf1e48c61417, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1723974725783907178, guid: 3fc0b954a56981448928bf1e48c61417, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 3786782936943160013}
+  m_SourcePrefab: {fileID: 100100000, guid: 3fc0b954a56981448928bf1e48c61417, type: 3}
+--- !u!1 &1553538127875958904 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1723974725783907178, guid: 3fc0b954a56981448928bf1e48c61417, type: 3}
+  m_PrefabInstance: {fileID: 172138798707868434}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3786782936943160013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553538127875958904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 708f3338a5e9300498f925111b8b854d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rigidbody: {fileID: 8523457191899832997}
+  _shieldHP: 1
+--- !u!50 &8523457191899832997 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 8370758474153042359, guid: 3fc0b954a56981448928bf1e48c61417, type: 3}
+  m_PrefabInstance: {fileID: 172138798707868434}
+  m_PrefabAsset: {fileID: 0}
